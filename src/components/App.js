@@ -2,6 +2,7 @@ import React from 'react';
 
 
 import './App.css';
+import './index.js';
 
 const App = () => {
     return (
