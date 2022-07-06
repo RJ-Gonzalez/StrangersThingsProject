@@ -1,18 +1,42 @@
-import React, {useEffect} from 'react';
-import { getPosts } from '../api';
+import React, { useEffect, useState } from "react";
+import { getPosts } from "../api";
+import { Login } from "./";
 
-import './App.css';
-import './index.js';
+import "./App.css";
 
 const App = () => {
-    useEffect (()=>{
-        getPosts().then((posts)=>{
-            console.log(posts);
+  const [posts, setPosts] = useState([]);
+  useEffect(() => {
+    getPosts()
+      .then((response) => {
+        // console.log(response)
+        const posts = response.data.posts;
+        setPosts(posts);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
+  console.log(posts);
 
-        })
-    })
+  const postMapping = posts.map((post, index) => {
     return (
-    <h1> App Component</h1>)
-}
+      <div key={`App${index}`}>
+        <h1>{post.title}</h1>
+        <h4>{post.updatedAt}</h4>
+        <h2>{post.price}</h2>
+        <h3>{post.description}</h3>
+        <h4>{post.author.username}</h4>
+      </div>
+    );
+  });
 
-export default App
+  return (
+    <div>
+      <Login />
+      {postMapping}
+    </div>
+  );
+};
+
+export default App;
