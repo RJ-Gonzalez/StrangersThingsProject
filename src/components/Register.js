@@ -9,12 +9,12 @@ export default function Register(){
     return(<>
     <form onSubmit ={handleSubmit}>
         <h1>REGISTER</h1>
-        <form id = "registerForm">
+     
             <input id = "username"  placeholder = "Enter Username" type = "text" minLength = "6"></input>
             <input id = "password" placeholder = "Enter Password" type = "password" minLength = "6"></input>
             <input id = "confirmPassword"  placeholder = "Confirm Password" type = "password" minLength = "6"></input>
+        <div></div>
 
 
-        </form>
         <button type = "submit">Create Account</button>
         </form></>)}
