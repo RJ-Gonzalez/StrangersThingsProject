@@ -4,11 +4,15 @@
 }
 
 #h1_title{
-    height: 100px;
-    color:red;
+    display:flex;
+    color: #ee6c4d;
+    font-family: 'Dosis bold 700',sans-serif;
+    font-size: 34px;
+    /* min - max */
 }
 
 .navBar{
     display:flex;
     justify-content: space-around;
+    font-family: 'Dosis',sans-serif;
 }

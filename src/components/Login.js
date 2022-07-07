@@ -8,7 +8,7 @@ async function handleSubmit(event){
 export default function LoggedIn(){
     return(<>
     <form onSubmit ={handleSubmit}>
-        <label> UserName: </label>
+        <label> Username: </label>
         <input id ="username"
         placeholder = "Enter Username Here">
         </input>
