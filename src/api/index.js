@@ -19,8 +19,7 @@ export async function getPosts() {
 //     const registerPassword = event.target[1].value
 
 //     console.log(`${BASE_URL}${cohortName}/users/register`)
-//     const response = await
-//     fetch(`${BASE_URL}${cohortName}/users/register`,
+//     const response = await fetch(`${BASE_URL}${cohortName}/users/register`,
 //     {
 //         method: "POST",
 //         headers: {
@@ -39,3 +38,6 @@ export async function getPosts() {
 // const tokenFromStorage = localStorage.getItem("token")
 // console.log(token)
 // }
+
+//localStorage.getItem('')
+//https://developer.mozilla.org/en-US/docs/Web/API/Window?localStorage

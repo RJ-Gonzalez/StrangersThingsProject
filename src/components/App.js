@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { BrowserRouter, Route, Link } from "react-router-dom";
 import { getPosts } from "../api";
-import { Login, Logout, Register } from "./";
+import { Login, Logout, Register, Title } from "./";
 
 import "./App.css";
 
@@ -48,6 +48,7 @@ const App = () => {
 
       </div>
       <div> */}
+      <Title />
       <Login />
       {postMapping}
       <Logout />

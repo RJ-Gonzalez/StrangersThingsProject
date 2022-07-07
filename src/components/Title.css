@@ -1,0 +1,14 @@
+#title{
+    text-align: center;
+
+}
+
+#h1_title{
+    height: 100px;
+    color:red;
+}
+
+.navBar{
+    display:flex;
+    justify-content: space-around;
+}
