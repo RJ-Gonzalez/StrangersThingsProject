@@ -1,21 +1,41 @@
-import React from 'react';
+import React, {useState} from 'react';
+import {loginUser} from '../api';
 
-async function handleSubmit(event){
-    event.preventDefault()
-    console.log("this is handle submit")
-}
+import "./Login.css"
 
-export default function LoggedIn(){
+export default function LoggedIn (){
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+
+    const handleOnChange = (event) =>{
+        const changed = event.target.id
+        console.log(changed)
+        if(changed === 'username'){
+            console.log(event.target.value)
+            setUsername(event.target.value)
+        }
+        else{
+            setPassword(event.target.value)
+        }
+    }
+    const handleSubmit = async(event) => {
+        event.preventDefault()
+        console.log(username, password, "this is username and password")
+        const token = await loginUser(username, password)
+        localStorage.setItem("token", token)
+        console.log(token)
+    }
+    console.log(username)
     return(<>
-    <form onSubmit ={handleSubmit}>
+    <form id = "loginPage" onSubmit ={handleSubmit}>
         <label> Username: </label>
         <input id ="username"
-        placeholder = "Enter Username Here">
+        placeholder = "Enter Username Here" value = {username} onChange ={handleOnChange} minLength = "6">
         </input>
         <label> Password: </label>
         <input id ="password" 
-        placeholder ="Enter Password Here"></input>
-        <button type = "submit">Login</button>
+        placeholder ="Enter Password Here" minLength = "6"></input>
+        <button id = "loginButton" type = "submit">Login</button>
     </form>
     </>)
 }

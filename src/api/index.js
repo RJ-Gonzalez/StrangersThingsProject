@@ -13,13 +13,95 @@ export async function getPosts() {
   }
 }
 
+export async function addPosts(token, NewPost){
+  try{
+  const response = await fetch(`${BASE_URL}${cohortName}/posts`,
+  {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "Authorization": `Bearer ${token}`
+    },
+    body: JSON.stringify({
+      post: NewPost
+    })
+  })
+    const result = await response.json()
+    console.log(result)
+} catch(error){
+  throw error;
+}
+  }
+
+  export async function deletePosts(){
+    try{
+      const response = await fetch(`${BASE_URL}${cohortName}/posts`, {
+        method: 'DELETE',
+      });
+      const result = await response.json()
+      console.log(result)
+    } catch (error){
+      throw error;
+    }
+
+  }
+
+
+
+export const loginUser = async (username, password) => {
+  const response = await fetch(`${BASE_URL}${cohortName}/users/login`,
+  {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      user: {
+        username: username,
+        password: password
+      }})
+  }
+  )
+  console.log(response, "response - loginUser")
+  const result = await response.json()
+  const token = result.data.token
+  return token
+}
+
+// export const getProfile = async (token) => {
+//   const response = await fetch(`${BASE_URL}${cohortName}/users/me`,
+//   {
+//     headers: {
+//       "Content-Type" : "application.json",
+//       "Authorization": 'Bearer ${token}'
+//     }
+//   })
+// }
+
+
+
+// export async function getUser(){
+//   try{
+//     const userData ={
+//       'Content-Type': 'application/json',
+//       'Authorization' : `Bearer ${authoToken}`
+//     }
+//     const response = await fetch(`${BASE_URL}${cohortName}/users/me`,{
+//       headers: userData
+//     })
+//     const result = await response.json()
+//     return result 
+//   } catch (error){
+//     throw error;
+//   }
+// }
 
 // function registerPerson(event){
 //     const registerUsername = event.target[0].value
 //     const registerPassword = event.target[1].value
 
 //     console.log(`${BASE_URL}${cohortName}/users/register`)
-//     const response = await fetch(`${BASE_URL}${cohortName}/users/register`,
+//     const response =  fetch(`${BASE_URL}${cohortName}/users/register`,
 //     {
 //         method: "POST",
 //         headers: {
@@ -32,12 +114,14 @@ export async function getPosts() {
 //         }
 //     })
 // })
-// const result = await response.json()
+// const result = response.json()
 // const token = result.data.token
-// lovalStorage.setItem("token", token)
+// localStorage.setItem("token", token)
 // const tokenFromStorage = localStorage.getItem("token")
 // console.log(token)
 // }
 
-//localStorage.getItem('')
-//https://developer.mozilla.org/en-US/docs/Web/API/Window?localStorage
+
+
+// localStorage.getItem('')
+// https://developer.mozilla.org/en-US/docs/Web/API/Window?localStorage
