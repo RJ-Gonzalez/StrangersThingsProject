@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 import "./Title.css";
 export default function Title(){
@@ -7,10 +7,12 @@ export default function Title(){
         <header id = "title">
             <div class = "navBar">
             <p id = "h1_title">Welcome to Stranger's Things</p>
-            <NavLink to="/posts" activeClassName="current">Posts</NavLink>
-            <NavLink to="/Register" activeClassName="current">Register</NavLink >
-            <NavLink to="/Login" activeClassName="current">Login</NavLink>
+            <Link to ='/Posts'>Posts</Link>
+            <Link to= '/Login'>Login</Link>
+            <Link to ='/Register'>Register</Link>
             </div>
         </header>
     )
 }
+
+// console.log(activePage, "This is active page");
