@@ -86,6 +86,7 @@ export async function loginUser (username, password) {
 
 
 export async function getUser(authToken){
+  console.log(authToken, "This is authtoken");
   try{
     const userData ={
       'Content-Type': 'application/json',
