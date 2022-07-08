@@ -13,14 +13,28 @@ export default function Profile() {
             setMyInfo(myReturnedInfo)
         }
         getMyInfo(myInfo)
+        // .then((response))
     },[])
+    console.log(myInfo)
+    const info = myInfo.data
+    
+    const myInfoMapping = myInfo && myInfo.length ? myInfo.map((inbox, index) => {
+        return (
+          <div>
+            <div key={`Profile${index}`}><button>
+              <h1>{inbox.message}</h1>
+              </button>
+            </div>
+          </div>
+        );
+      }) : null ;
 
 return (
     <div className="box">
         <h1> Welcome </h1>
         <p>Messages are Here</p>
         <div id = "messageBox">
-         
+         {/* {myInfoMapping} */}
         </div>
         <Link to ='/Logout'> Logout </Link>
     </div>
