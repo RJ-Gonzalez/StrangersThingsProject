@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { Route, Link, Routes } from "react-router-dom";
-import { Login, Logout, Register, Title, Posts } from "./";
+import { Login, Logout, Register, Title, Posts, Profile } from "./";
 
 import "./App.css";
 
 const App = () => {
+  
   return (
     <div>
   
@@ -16,7 +17,7 @@ const App = () => {
         <Route exact path="/Register" element = {<Register/>}></Route>
         <Route exact path="/Login" element = {<Login/>}></Route>
         <Route exact path="/Posts" element = {<Posts/>}></Route>
-        <Route exact path="/Profile" element = {<Posts/>}></Route>
+        <Route exact path="/Profile" element = {<Profile/>}></Route>
         {/* <Route exact path="/Messages" element = {<Messages/>}></Route> */}
 
       </Routes>

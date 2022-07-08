@@ -1,9 +1,11 @@
 import React, {useState} from 'react';
+import { useNavigate } from "react-router-dom";
 import {loginUser} from '../api';
 
 import "./Login.css"
 
 export default function LoggedIn (){
+    let navigate = useNavigate();
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
 
@@ -26,6 +28,7 @@ export default function LoggedIn (){
         const token = await loginUser(username, password)
         localStorage.setItem("token", token)
         console.log(token)
+        navigate("/Profile")
     }
     console.log(username)
     return(<>

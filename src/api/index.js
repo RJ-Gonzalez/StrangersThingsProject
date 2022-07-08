@@ -74,15 +74,19 @@ export async function loginUser (username, password) {
   }  
 }
 
+//unable to fetch appropriate website. no highlight.
 
-export const getProfile = async (token) => {
+export async function connectProfile(token) {
+  console.log(`${BASE_URL}${cohortName}/users/me`)
   const response = await fetch(`${BASE_URL}${cohortName}/users/me`,
   {
     headers: {
       "Content-Type" : "application.json",
-      "Authorization": 'Bearer ${token}'
+      "Authorization": `Bearer ${token}`
     }
   })
+  const result = await response.json()
+return result
 }
 
 

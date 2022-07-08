@@ -23,12 +23,13 @@ const Posts = () => {
   const postMapping = posts.map((post, index) => {
     return (
       <div>
-        <div key={`App${index}`}>
+        <div key={`App${index}`}><button>
           <h1>{post.title}</h1>
-          <h4>{post.updatedAt}</h4>
           <h2>{post.price}</h2>
+          <h4>{post.updatedAt}</h4>
           <h3>{post.description}</h3>
           <h4>{post.author.username}</h4>
+          </button>
         </div>
       </div>
     );
