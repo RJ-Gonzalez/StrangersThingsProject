@@ -73,15 +73,15 @@ export async function loginUser (username, password) {
 }
 
 
-// export const getProfile = async (token) => {
-//   const response = await fetch(`${BASE_URL}${cohortName}/users/me`,
-//   {
-//     headers: {
-//       "Content-Type" : "application.json",
-//       "Authorization": 'Bearer ${token}'
-//     }
-//   })
-// }
+export const getProfile = async (token) => {
+  const response = await fetch(`${BASE_URL}${cohortName}/users/me`,
+  {
+    headers: {
+      "Content-Type" : "application.json",
+      "Authorization": 'Bearer ${token}'
+    }
+  })
+}
 
 
 

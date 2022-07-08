@@ -11,6 +11,7 @@ export default function Title(){
             <Link to ='/Posts'>Posts</Link>
             <Link to= '/Login'>Login</Link>
             <Link to ='/Register'>Register</Link>
+            <Link to ='/Profile'>Profile</Link>
             </div>
         </header>
     )
