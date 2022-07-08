@@ -1,13 +1,16 @@
 import React, { useState } from "react";
+import {getUser} from "../api"
 export const cohortName = "2206-FTB-ET-WEB-FT";
 export const BASE_URL = `https://strangers-things.herokuapp.com/api/`;
 
 async function handleSubmit(event){
     event.preventDefault()
-    console.log("this is handle submit for register")
+    console.log("this is handle submit for register");
 }
 export default function Register(){
-    const[username, setUsername] = useState('')
+    const[username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+    const [confimPassword, setConfirmPassword] = useState('')
     const createUser = async (event)=>{
         try {
         event.preventDefault()
@@ -18,13 +21,17 @@ export default function Register(){
         },
         body:JSON.stringify({
             user:{
-                username:'username',
-                password: 'password',
+                username: username,
+                password: password,
             }
         })
     })
     const result = await response.json()
     const token = result.data.token
+    localStorage.setItem("token", token)
+    const tokenFromStorage = localStorage.getItem("token")
+    console.log(token)
+    
 return result
 
 }catch(error){
@@ -35,9 +42,9 @@ return result
     <form onSubmit ={handleSubmit}>
         <h1>REGISTER</h1>
      
-            <input id = "username"  placeholder = "Enter Username" type = "text" minLength = "6"></input>
-            <input id = "password" placeholder = "Enter Password" type = "password" minLength = "6"></input>
-            <input id = "confirmPassword"  placeholder = "Confirm Password" type = "password" minLength = "6"></input>
+            <input id = "username"  placeholder = "Enter Username" type = "text" minLength = "6" onChange={event => setUsername(event.target.value)}></input>
+            <input id = "password" placeholder = "Enter Password" type = "password" minLength = "6" onChange={event => setPassword(event.target.value)}></input>
+            <input id = "confirmPassword"  placeholder = "Confirm Password" type = "password" minLength = "6" onChange={event => setConfirmPassword(event.target.value)}></input>
         <div></div>
 
 

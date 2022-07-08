@@ -9,12 +9,14 @@ export default function LoggedIn (){
 
     const handleOnChange = (event) =>{
         const changed = event.target.id
-        console.log(changed)
+        // console.log(changed, 'this is changed')
         if(changed === 'username'){
-            console.log(event.target.value)
+            console.log(username, 'this is username')
             setUsername(event.target.value)
         }
-        else{
+        else if(changed === 'password'){
+            console.log(password, 'this is password')
+
             setPassword(event.target.value)
         }
     }
@@ -34,7 +36,7 @@ export default function LoggedIn (){
         </input>
         <label> Password: </label>
         <input id ="password" 
-        placeholder ="Enter Password Here" minLength = "6"></input>
+        placeholder ="Enter Password Here" minLength = "6" onChange ={handleOnChange}></input>
         <button id = "loginButton" type = "submit">Login</button>
     </form>
     </>)
