@@ -18,7 +18,7 @@ const Posts = () => {
         console.log(error);
       });
   }, []);
-  // console.log(posts);
+  console.log(posts);
 
   const postMapping = posts.map((post, index) => {
     return (
