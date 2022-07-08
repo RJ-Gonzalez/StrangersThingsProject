@@ -1,47 +1,20 @@
 import React, { useState } from "react";
-import {getUser} from "../api"
+import {createUser} from "../api"
 export const cohortName = "2206-FTB-ET-WEB-FT";
 export const BASE_URL = `https://strangers-things.herokuapp.com/api/`;
 
-async function handleSubmit(event){
-    event.preventDefault()
-    console.log("this is handle submit for register");
-    const token = await getUser (username, password)
-    localStorage.setItem("token", token)
-    console.log(token, "This is token from register");
-}
+
 export default function Register(){
     const[username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [confimPassword, setConfirmPassword] = useState('')
-    const createUser = async (event)=>{
-        try {
-        event.preventDefault()
-    const response = await fetch (`${BASE_URL}${cohortName}/users/Register`,{
-        method:"POST",
-        headers: {
-            "Content-Type":"application/json"
-        },
-        body:JSON.stringify({
-            user:{
-                username: username,
-                password: password,
-            }
-        })
-    })
-    const result = await response.json()
-    const token = result.data.token
-    //**** */ attempting to get user from API
-    const userInfo = await getUser (token)
-    localStorage.setItem("token", token)
-    const tokenFromStorage = localStorage.getItem("token")
-    console.log(token)
-    
-return result
 
-}catch(error){
-    throw error;
-}
+async function handleSubmit(event){
+    event.preventDefault()
+    console.log("this is handle submit for register");
+    const token = await createUser (username, password)
+    localStorage.setItem("token", token)
+    console.log(token, "This is token from register");
 } 
     return(<>
     <form onSubmit ={handleSubmit}>

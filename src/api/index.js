@@ -3,6 +3,8 @@ import axios from "axios";
 export const cohortName = "2206-FTB-ET-WEB-FT";
 export const BASE_URL = `https://strangers-things.herokuapp.com/api/`;
 
+
+
 export async function getPosts() {
   try {
     const data  = await fetch(`${BASE_URL}${cohortName}/posts`);
@@ -102,6 +104,28 @@ export async function getUser(authToken){
   }
 }
 
+export async function createUser (username, password){
+  try {
+  console.log(`${BASE_URL}${cohortName}/users/register`)
+  const response = await fetch (`${BASE_URL}${cohortName}/users/Register`,{
+  method:"POST",
+  headers: {
+      "Content-Type":"application/json"
+  },
+  body:JSON.stringify({
+      user:{
+          username: username,
+          password: password,
+      }
+  })
+})
+return response
+}catch(error){
+throw error;
+}
+}
+
+
 // function registerPerson(event){
 //     const registerUsername = event.target[0].value
 //     const registerPassword = event.target[1].value
@@ -128,6 +152,32 @@ export async function getUser(authToken){
 // }
 
 
+// export async function registerPerson (event) {
+//   console.log(`${BASE_URL}${cohortName}/users/register`)
+//   const response = await fetch(`${BASE_URL}${cohortName}/users/register`)
+
+//   console.log(response)
+// }
+
+
+
+
+
+//This would be in your component file
+// async function handleSubmit(event){
+//   EventTarget.preventDefault()
+//   console.log("this is your event")
+//   registerPerson(event)
+// }
+
 
 // localStorage.getItem('')
 // https://developer.mozilla.org/en-US/docs/Web/API/Window?localStorage
+
+//this goes inside delete post component
+// const handleDelete = (event) =>{
+//   event.preventDefault()
+//   const token = localStoraage.getItem("token")
+//   deletePosts(event.target.id)
+// }
+

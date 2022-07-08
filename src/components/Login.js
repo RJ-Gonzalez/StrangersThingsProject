@@ -32,11 +32,16 @@ export default function LoggedIn (){
     <form id = "loginPage" onSubmit ={handleSubmit}>
         <label> Username: </label>
         <input id ="username"
-        placeholder = "Enter Username Here" value = {username} onChange ={handleOnChange} minLength = "6">
+        placeholder = "Enter Username Here" 
+        value = {username} onChange ={handleOnChange} 
+        minLength = "6">
         </input>
         <label> Password: </label>
         <input id ="password" 
-        placeholder ="Enter Password Here" minLength = "6" onChange ={handleOnChange}></input>
+        placeholder ="Enter Password Here" 
+        minLength = "6" 
+        onChange ={handleOnChange}>
+        </input>
         <button id = "loginButton" type = "submit">Login</button>
     </form>
     </>)
