@@ -6,6 +6,9 @@ export const BASE_URL = `https://strangers-things.herokuapp.com/api/`;
 async function handleSubmit(event){
     event.preventDefault()
     console.log("this is handle submit for register");
+    const token = await getUser (username, password)
+    localStorage.setItem("token", token)
+    console.log(token, "This is token from register");
 }
 export default function Register(){
     const[username, setUsername] = useState('');
@@ -28,6 +31,8 @@ export default function Register(){
     })
     const result = await response.json()
     const token = result.data.token
+    //**** */ attempting to get user from API
+    const userInfo = await getUser (token)
     localStorage.setItem("token", token)
     const tokenFromStorage = localStorage.getItem("token")
     console.log(token)

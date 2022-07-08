@@ -86,6 +86,7 @@ export const getProfile = async (token) => {
 
 
 export async function getUser(authToken){
+  console.log(authToken, "This is authtoken");
   try{
     const userData ={
       'Content-Type': 'application/json',
