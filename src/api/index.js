@@ -15,8 +15,7 @@ export async function getPosts() {
   }
 }
 
-export async function addPosts(NewPost, token){
-  try{
+export async function addPosts(postDetail, token){
   const response = await fetch(`${BASE_URL}${cohortName}/posts`,
   {
     method: "POST",
@@ -26,23 +25,19 @@ export async function addPosts(NewPost, token){
     },
     body: JSON.stringify({
       post: {
-        title: NewPost.title,
-        description: NewPost.description,
-        location:NewPost.location,
-        price: NewPost.price,
-        willDeliver: NewPost.willDeliver,
+        title: postDetail.title,
+        description: postDetail.description,
+        location: postDetail.location,
+        price: postDetail.price,
+        willDeliver: postDetail.willDeliver,
       }
     })
+  }) .then((response => response.json()))
+  .then(result => {
+    console.log(result)
   })
-
-  const result = await response.json()
-  const newPost = result.data.post
-  console.log(result)
-  return newPost 
-} catch(error){
-  throw error;
+  .catch(console.error)
 }
-  }
 
   export async function deletePosts(){
     try{
@@ -50,7 +45,8 @@ export async function addPosts(NewPost, token){
         method: 'DELETE',
       });
       const result = await response.json()
-      console.log(result)
+      // console.log(result)
+      return result
     } catch (error){
       throw error;
     }
@@ -86,7 +82,7 @@ export async function loginUser (username, password) {
 //unable to fetch appropriate website. no highlight.
 
 export async function connectProfile(token) {
-  console.log(`${BASE_URL}${cohortName}/users/me`)
+  console.log(`${BASE_URL}${cohortName}/users/me`) //HAVING ISSUE WITH HIGHLIGHTS
   const response = await fetch(`${BASE_URL}${cohortName}/users/me`,
   {
     headers: {

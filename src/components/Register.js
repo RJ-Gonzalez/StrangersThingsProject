@@ -23,11 +23,22 @@ async function handleSubmit(event){
     <form onSubmit ={handleSubmit}>
         <h1>REGISTER</h1>
      
-            <input id = "newUsername"  placeholder = "Enter newUsername" type = "text" minLength = "6" onChange={event => setnewUsername(event.target.value)}></input>
-            <input id = "password" placeholder = "Enter Password" type = "password" minLength = "6" onChange={event => setPassword(event.target.value)}></input>
-            <input id = "confirmPassword"  placeholder = "Confirm Password" type = "password" minLength = "6" onChange={event => setConfirmPassword(event.target.value)}></input>
+            <input id = "newUsername"  
+            placeholder = "Enter newUsername" 
+            type = "text" minLength = "6"
+            onChange={event => setnewUsername(event.target.value)}>
+
+            </input>
+            <input id = "password" 
+            placeholder = "Enter Password" 
+            type = "password" minLength = "6" 
+            onChange={event => setPassword(event.target.value)}>
+            </input>
+            <input id = "confirmPassword"  
+            placeholder = "Confirm Password" 
+            type = "password" minLength = "6" 
+            onChange={event => setConfirmPassword(event.target.value)}>
+            </input>
         <div></div>
-
-
         <button type = "submit">Create Account</button>
         </form></>)}

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Route, Link, Routes } from "react-router-dom";
-import { Login, Logout, Register, Title, Posts, Profile } from "./";
+import { Login, Logout, Register, Title, Posts, Profile, NewPost } from "./";
 
 import "./App.css";
 
@@ -18,6 +18,8 @@ const App = () => {
         <Route exact path="/Login" element = {<Login/>}></Route>
         <Route exact path="/Posts" element = {<Posts/>}></Route>
         <Route exact path="/Profile" element = {<Profile/>}></Route>
+        <Route exact path = "/NewPost" element = {<NewPost/>}></Route>
+
         {/* <Route exact path="/Messages" element = {<Messages/>}></Route> */}
 
       </Routes>

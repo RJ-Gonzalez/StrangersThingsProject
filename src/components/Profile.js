@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import { connectProfile } from "../api";
+
 import { Link } from 'react-router-dom';
 
 export default function Profile() {
@@ -33,6 +34,7 @@ return (
     <div className="box">
         <h1> Welcome </h1>
         <p>Messages are Here</p>
+
         <div id = "messageBox">
          {/* {myInfoMapping} */}
         </div>
