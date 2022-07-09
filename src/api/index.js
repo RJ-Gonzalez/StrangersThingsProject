@@ -15,7 +15,7 @@ export async function getPosts() {
   }
 }
 
-export async function addPosts(token, NewPost){
+export async function addPosts(NewPost, token){
   try{
   const response = await fetch(`${BASE_URL}${cohortName}/posts`,
   {
@@ -25,11 +25,20 @@ export async function addPosts(token, NewPost){
       "Authorization": `Bearer ${token}`
     },
     body: JSON.stringify({
-      post: NewPost
+      post: {
+        title: NewPost.title,
+        description: NewPost.description,
+        location:NewPost.location,
+        price: NewPost.price,
+        willDeliver: NewPost.willDeliver,
+      }
     })
   })
-    const result = await response.json()
-    console.log(result)
+
+  const result = await response.json()
+  const newPost = result.data.post
+  console.log(result)
+  return newPost 
 } catch(error){
   throw error;
 }
