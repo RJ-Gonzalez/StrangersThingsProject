@@ -163,9 +163,9 @@ throw error;
 //   .catch(console.error)
 // }
 
-export async function deletePosts(token, postId){
+export async function deletePosts(token, postid){
   try{
-      const response = await fetch(`${BASE_URL}${cohortName}/posts/${postId}`, {
+      const response = await fetch(`${BASE_URL}${cohortName}/posts/${postid}`, {
           method: "DELETE",
           headers: {
               'Content-Type': 'application/json',
@@ -175,6 +175,6 @@ export async function deletePosts(token, postId){
       const result = await response.json();
       return result;
   }catch (error){
-      console.error("Isssue Fetching Users Posts", error)
+      console.error("Isssue deleting Posts", error)
   }
 }

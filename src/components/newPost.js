@@ -34,7 +34,6 @@ async function handleSubmit(event) {
         <div>
             {authToken === true ?(
             <>
-            <p>THIS IS CREATE A NEW POST PAGE</p>
             <h1>Create a New Post</h1>
             <form onSubmit = {handleSubmit}>
                 <input

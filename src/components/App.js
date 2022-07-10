@@ -5,6 +5,8 @@ import { Login, Logout, Register, Title, Posts, Profile, NewPost } from "./";
 import "./App.css";
 
 const App = () => {
+  const [postValue, setPostValue] = useState('')
+
   
   return (
     <div>
@@ -16,7 +18,7 @@ const App = () => {
       <Routes>
         <Route exact path="/Register" element = {<Register/>}></Route>
         <Route exact path="/Login" element = {<Login/>}></Route>
-        <Route exact path="/Posts" element = {<Posts/>}></Route>
+        <Route exact path="/Posts" element = {<Posts postValue = {postValue} setPostValue = {setPostValue}/>}></Route>
         <Route exact path="/Profile" element = {<Profile/>}></Route>
         <Route exact path = "/NewPost" element = {<NewPost/>}></Route>
 
