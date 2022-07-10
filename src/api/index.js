@@ -39,21 +39,6 @@ export async function addPosts(postDetail, token){
   .catch(console.error)
 }
 
-  export async function deletePosts(){
-    try{
-      const response = await fetch(`${BASE_URL}${cohortName}/posts`, {
-        method: 'DELETE',
-      });
-      const result = await response.json()
-      // console.log(result)
-      return result
-    } catch (error){
-      throw error;
-    }
-
-  }
-
-
 
 export async function loginUser (username, password) {
   try{
@@ -135,31 +120,6 @@ throw error;
 }
 
 
-// function registerPerson(event){
-//     const registerUsername = event.target[0].value
-//     const registerPassword = event.target[1].value
-
-//     console.log(`${BASE_URL}${cohortName}/users/register`)
-//     const response =  fetch(`${BASE_URL}${cohortName}/users/register`,
-//     {
-//         method: "POST",
-//         headers: {
-//             "Content-Type": "application/json"
-//     },
-//     body: JSON.stringify({
-//         user:{
-//             username: registerUsername,
-//             password: registerPassword
-//         }
-//     })
-// })
-// const result = response.json()
-// const token = result.data.token
-// localStorage.setItem("token", token)
-// const tokenFromStorage = localStorage.getItem("token")
-// console.log(token)
-// }
-
 
 // export async function registerPerson (event) {
 //   console.log(`${BASE_URL}${cohortName}/users/register`)
@@ -183,10 +143,38 @@ throw error;
 // localStorage.getItem('')
 // https://developer.mozilla.org/en-US/docs/Web/API/Window?localStorage
 
-//this goes inside delete post component
-// const handleDelete = (event) =>{
-//   event.preventDefault()
-//   const token = localStoraage.getItem("token")
-//   deletePosts(event.target.id)
+
+
+// export async function deletePosts(token, postId){
+//   const response = await fetch(`${BASE_URL}${cohortName}/posts/${postId}`,
+//    {
+//     method: 'DELETE',
+//     headers:{    
+//       'Content-Type': 'application/json',
+//       'Authorization': `Bearer ${token}`
+
+//     },
+//   }) 
+//   .then(response => response.json())
+//   .then(result => {
+//     console.log(result)
+
+//   })
+//   .catch(console.error)
 // }
 
+export async function deletePosts(token, postId){
+  try{
+      const response = await fetch(`${BASE_URL}${cohortName}/posts/${postId}`, {
+          method: "DELETE",
+          headers: {
+              'Content-Type': 'application/json',
+              'Authorization': `Bearer ${token}`
+          }
+      })
+      const result = await response.json();
+      return result;
+  }catch (error){
+      console.error("Isssue Fetching Users Posts", error)
+  }
+}

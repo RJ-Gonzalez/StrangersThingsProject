@@ -16,7 +16,7 @@ export default function Profile() {
         getMyInfo(myInfo)
         // .then((response))
     },[])
-    console.log(myInfo)
+  
     const info = myInfo.data
     
     const myInfoMapping = myInfo && myInfo.length ? myInfo.map((inbox, index) => {
@@ -33,10 +33,11 @@ export default function Profile() {
 return (
     <div className="box">
         <h1> Welcome </h1>
-        <p>Messages are Here</p>
+       
 
         <div id = "messageBox">
          {/* {myInfoMapping} */}
+          <p>Messages are Here</p>
         </div>
         <Link to ='/Logout'> Logout </Link>
     </div>

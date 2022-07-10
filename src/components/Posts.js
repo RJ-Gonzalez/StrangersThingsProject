@@ -1,16 +1,18 @@
 import React, { useEffect, useState } from "react";
 import { Route, Link, Routes } from "react-router-dom";
-import { getPosts } from "../api";
-import { Login, Logout, Register, Title, posts } from "./";
+import { deletePosts, getPosts } from "../api";
+
 
 import "./App.css";
 
-const Posts = () => {
+const Posts = (setToken) => {
   const [posts, setPosts] = useState([]);
+
+
   useEffect(() => {
     getPosts()
       .then((response) => {
-        // console.log(response)
+        console.log(response, 'respnse from Posts')
         const posts = response.data.posts;
         setPosts(posts);
       })
@@ -19,17 +21,22 @@ const Posts = () => {
       });
   }, []);
   console.log(posts);
-
+  async function deletePost(postId, token){
+    const response =  await deletePosts(token, postId);
+    localStorage.setItem("token", token)
+    console.log(token)
+   }
   const postMapping = posts.map((post, index) => {
     return (
       <div>
-        <div key={`App${index}`}><button>
+        <div key={`App${index}`}>
           <h1>{post.title}</h1>
           <h2>{post.price}</h2>
           <h4>{post.updatedAt}</h4>
           <h3>{post.description}</h3>
           <h4>{post.author.username}</h4>
-          </button>
+          <button onClick ={()=>{deletePost(setToken,post._id)}}>Delete Post</button>
+         
         </div>
       </div>
     );

@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+
+
 import { addPosts } from "../api";
 
 export default function newPost (){
@@ -14,6 +16,7 @@ export default function newPost (){
 async function handleSubmit(event) {
     event.preventDefault()
 
+
     const postDetail = {
         "title" : title, 
         "description": description, 
@@ -24,9 +27,8 @@ async function handleSubmit(event) {
     const token = localStorage.getItem("token")
     console.log(token)
     const response = await addPosts(postDetail, token)
-    console.log(response, "this is response")
-    return response
-
+    console.log(response, "this is resposne from NewPost")
+    // navigate("/Login")
     };
     return (
         <div>
