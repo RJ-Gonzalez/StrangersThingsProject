@@ -28,7 +28,7 @@ async function handleSubmit(event) {
     console.log(token)
     const response = await addPosts(postDetail, token)
     console.log(response, "this is resposne from NewPost")
-    // navigate("/Login")
+    return response
     };
     return (
         <div>

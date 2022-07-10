@@ -6,6 +6,7 @@ import "./App.css";
 
 const App = () => {
   const [postValue, setPostValue] = useState('')
+  const [messages, setMessages] = useState([])
 
   
   return (
@@ -19,8 +20,11 @@ const App = () => {
         <Route exact path="/Register" element = {<Register/>}></Route>
         <Route exact path="/Login" element = {<Login/>}></Route>
         <Route exact path="/Posts" element = {<Posts postValue = {postValue} setPostValue = {setPostValue}/>}></Route>
-        <Route exact path="/Profile" element = {<Profile/>}></Route>
+        <Route exact path="/Profile" element = {<Profile messages ={messages} setMessages = {setMessages}/> }></Route>
         <Route exact path = "/NewPost" element = {<NewPost/>}></Route>
+        <Route exact path = "/Logout" element = {<Logout/>}></Route>
+
+
 
         {/* <Route exact path="/Messages" element = {<Messages/>}></Route> */}
 
