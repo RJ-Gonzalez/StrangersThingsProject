@@ -179,7 +179,7 @@ export async function deletePosts(token, postid){
   }
 }
 
-export async function sendMessage (){
+export async function sendMessage (token, postid, content){
   const response = await fetch(`${BASE_URL}${cohortName}/posts/${postid}`,{
     method: "POST",
     headers: {
@@ -197,24 +197,3 @@ export async function sendMessage (){
   })
   .catch (console.error);
 }
-
-// export async function sendMessage() {
-//   const response = await 
-//   fetch(`${BASE_URL}${cohortName}/posts/${postid}/messages,
-//     {
-//       method: "POST",
-//       headers: {
-//         "Content-Type": "application/json",
-//         Authorization: Bearer ${token},
-//       },
-//       body: JSON.stringify ({
-//         message: {
-//           content: ""
-//         }
-//       })
-//     }).then (response => response.json())
-//     .then (result=>{
-//       console.log (result, "this is result for sendMesages ");
-//     })
-//     .catch (console.error);
-// }
