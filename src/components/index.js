@@ -8,5 +8,6 @@ export {default as Profile} from "./Profile";
 export {default as NewPost} from "./NewPost";
 export {default as SinglePost} from "./SinglePost";
 export {default as LoadingPage} from "./LoadingPage";
+export {default as MessageForm} from "./MessageForm";
 
 

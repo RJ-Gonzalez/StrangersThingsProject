@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Route, Link, Routes } from "react-router-dom";
-import { Login, Logout, Register, Title, Posts, Profile, NewPost, SinglePost,LoadingPage } from "./";
+import { Login, Logout, Register, Title, Posts, Profile, NewPost, SinglePost,LoadingPage, MessageForm } from "./";
 
 import "./App.css";
 
@@ -25,6 +25,7 @@ const App = () => {
         <Route exact path = "/NewPost" element = {<NewPost/>}></Route>
         <Route exact path = "/Logout" element = {<Logout/>}></Route>
         <Route exact path = "/SinglePost" element = {<SinglePost/>}></Route>
+        <Route exact path = "/MessageForm" element = {<MessageForm/>}></Route>
 
 
 
