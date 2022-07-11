@@ -8,6 +8,7 @@ import "./App.css";
 const Posts = ({postValue, setPostValue}) => {
   const navigate = useNavigate();
   const [posts, setPosts] = useState([]);
+  const authToken = localStorage.getItem("token") ? true : false
   const catchId = (id) => { 
     setPostValue(id)
     return postValue
@@ -45,7 +46,7 @@ const Posts = ({postValue, setPostValue}) => {
           <h4 id = "additionalPost">POST BY: {post.author.username}</h4>
           <h3 id = "additionalPost">DESCRIPTION: {post.description}</h3>
 
-          <button onClick ={()=>{catchId(post._id), deletePost()}} id = "deleteButton">Delete Post</button>
+          { authToken === true ? <button onClick ={()=>{catchId(post._id), deletePost()}} id = "deleteButton">Delete Post</button>:<Link to ="/Login"><button id = "null">Login to View Post</button></Link>}
           </div>
         </div>
       </div>

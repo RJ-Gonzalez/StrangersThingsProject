@@ -43,12 +43,13 @@ export default function Profile() {
 
 return (
     <div className="box">
-        <h1> Welcome </h1>
+      {/* Works for the first load, second load breaks. */}
+        {/* <h1> Welcome {myInfo.data.username} </h1> */}
+             <h1> Welcome User </h1>
        
 {/* ATTEMPTING TO MAP UNSUCCESSFUL WITH BOTH TRIES, LOOK ABOVE FOR BOTH MAPPING TECHNIQUES */}
         <div id = "messageBox">
          {/* {myInfoMapping} */}
-
           <p>Messages are Here</p>
           
           {/* {userMessages.map((element,index)=>{
@@ -62,9 +63,8 @@ return (
         <div id = "postBox">
           this will be user post
         </div>
-        <></>
-  
       <Link to ="/NewPost"><button id = 'newPost'>Create New Post</button></Link>
+      <Link to ='/Posts'><button id = 'singlePost'>View All Posts</button></Link>  
       <Link to ='/SinglePost'><button id = 'singlePost'>Single Post View</button></Link>
       <Link to ='/Logout'> <button id = 'logOut' onClick={() => { localStorage.removeItem("token");}}>Log Out</button> </Link>
     </div>

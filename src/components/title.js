@@ -8,7 +8,7 @@ export default function Title(){
             <div id= "navBar">
             <p id = "h1_title">Welcome to Stranger's Things</p>
             <Link to = './'>Home</Link>
-            <Link to ='/Posts'>Posts</Link>
+            {/* <Link to ='/Posts'>Posts</Link> */}
             <Link to= '/Login'>Login</Link>
             <Link to ='/Register'>Register</Link>
             <Link to ='/Profile'>Profile</Link>

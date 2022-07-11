@@ -33,7 +33,7 @@ export default function LoggedIn (){
     console.log(username)
     return(<>
     <form id = "loginPage" onSubmit ={handleSubmit}>
-        <label> Username: </label>
+        <label>   Username: </label>
         <input id ="username"
         placeholder = "Enter Username Here" 
         value = {username} onChange ={handleOnChange} 

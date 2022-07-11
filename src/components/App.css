@@ -48,6 +48,7 @@ button{
     margin-bottom: 3%;
     margin-top: 3%;
 }
+
 p{
     font-family: 'Dosis',sans-serif;
 }
@@ -66,7 +67,7 @@ p{
 }
 
 #newPost, #singlePost, #logOut{
-    width: 23%;
+    width: 17.5%;
     font-family: 'Dosis bold',sans-serif;
     font-size:90%;
     color:#293241;
@@ -118,4 +119,15 @@ p{
     display:flex;
     justify-content:center;
     margin-left:30%;
+}
+#null{
+    width: 40%;
+    font-family: 'Dosis',sans-serif;
+    font-size:20px;
+    color: black;
+    background-color:red;
+    display:flex;
+    justify-content:center;
+    margin-left:30%;
+    text-decoration: none;
 }
