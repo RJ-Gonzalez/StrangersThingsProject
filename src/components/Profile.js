@@ -6,11 +6,8 @@ import { connectProfile, getUser } from "../api";
 import { Link } from 'react-router-dom';
 
 export default function Profile() {
-
-
     let token = "";
     const [myInfo, setMyInfo] = useState({})
-
     useEffect(() => {
         token = localStorage.getItem("token")
         async function getMyInfo() {
@@ -21,9 +18,6 @@ export default function Profile() {
         getMyInfo()
     },[])
     // console.log("messages are", myInfo)
-    
- 
-
     const myInfoMapping =myInfo.data && myInfo.data.messages && myInfo.data.messages.length ? myInfo.data.messages.map((element, index) => {
       console.log(element, "this is element line 28")
         return (
@@ -47,12 +41,9 @@ return (
         
         <div id = "messageBox">
           <h2>Messages:</h2>
-          <h4>
+       
           {myInfoMapping} 
-          </h4>
-        </div>
-        <div id = "postBox">
-          this will be user post
+      
         </div>
       <Link to ="/NewPost"><button id = 'newPost'>Create New Post</button></Link>
       <Link to ='/Posts'><button id = 'singlePost'>View All Posts</button></Link>  

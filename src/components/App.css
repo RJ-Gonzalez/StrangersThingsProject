@@ -35,9 +35,9 @@ button{
     display:flex;
     justify-content:center;
     margin: auto;
-    
-    
+    overflow:scroll;
 }
+
 #postBox{
     border: 4px solid black;
     height: 200px;

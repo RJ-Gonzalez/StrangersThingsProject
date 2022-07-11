@@ -13,7 +13,8 @@ const Posts = ({postValue, setPostValue}) => {
     setPostValue(id)
     return postValue
   }
-  console.log(postValue, "this is postValue line 14")
+  // console.log(posts, "this is posts! in posts.")
+  // console.log(postValue, "this is postValue line 14")
   useEffect(() => {
     getPosts()
       .then((response) => {
@@ -36,7 +37,9 @@ const Posts = ({postValue, setPostValue}) => {
     return erase
    }
   const postMapping = posts.map((post, index) => {
-    console.log(post, "this is line 39")
+    console.log(posts)
+    let postId = posts[index]._id
+    console.log(postId, "this is post id")
     return (
       <div id = "TitleBox">
         <div id = "titleContainer">

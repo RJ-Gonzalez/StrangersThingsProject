@@ -180,7 +180,6 @@ export async function deletePosts(token, postid){
 }
 
 export async function sendMessage (token, postid, content){
-  console.log(token, "this is token ln183");
   const response = await fetch(`${BASE_URL}${cohortName}/posts/${postid}/messages`,{
     method: "POST",
     headers: {
@@ -189,10 +188,10 @@ export async function sendMessage (token, postid, content){
     },
     body: JSON.stringify({
       message:{
-        content
+        content: content,
       }
     })
-  }).then (response =response.json())
+  }).then (response => response.json())
   .then(result=>{
     console.log (result, "this is result for sendMessage");
   })
