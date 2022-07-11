@@ -180,7 +180,8 @@ export async function deletePosts(token, postid){
 }
 
 export async function sendMessage (token, postid, content){
-  const response = await fetch(`${BASE_URL}${cohortName}/posts/${postid}`,{
+  console.log(token, "this is token ln183");
+  const response = await fetch(`${BASE_URL}${cohortName}/posts/${postid}/messages`,{
     method: "POST",
     headers: {
       'Content-Type': 'application/json',
