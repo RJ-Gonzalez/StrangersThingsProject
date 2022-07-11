@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from "react";
+import { Route, Link, Routes, useNavigate } from "react-router-dom";
+
 
 
 import { addPosts } from "../api";
 
 export default function newPost (){
+    let navigate = useNavigate()
   
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
@@ -28,6 +31,7 @@ async function handleSubmit(event) {
     console.log(token)
     const response = await addPosts(postDetail, token)
     console.log(response, "this is resposne from NewPost")
+    navigate("/Posts")
     return response
     };
     return (
@@ -63,7 +67,7 @@ async function handleSubmit(event) {
                 </input>
                 <button type = "Submit">Submit New Post</button>
                 </form></>       
-                ) : <h2>login first</h2>    } 
+                ) : <h2>Please Login Before Attempting To Post</h2>    } 
         </div>
     )
 }
