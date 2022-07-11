@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import { connectProfile, getUser } from "../api";
-import {Logout, Loggedout} from "./"
+
 
 
 import { Link } from 'react-router-dom';
@@ -27,28 +27,29 @@ export default function Profile() {
     const myInfoMapping =myInfo.data && myInfo.data.messages && myInfo.data.messages.length ? myInfo.data.messages.map((element, index) => {
       console.log(element, "this is element line 28")
         return (
-            <div key={`Profile${index}`}><button>
-              <h2>{element.content}</h2>
-              <h2>{element.fromUser.username}</h2>
-              </button>
+            <div key={`Profile${index}`}>
+              <h2>Title of Posted Post: {element.post.title}</h2>
+              <h2>Content: {element.content}</h2>
+              <h2>From: {element.fromUser.username}</h2>
               </div>
           )
 }) : <h2>No messages to display</h2>
        
-console.log(myInfo, "this is my info")
+// console.log(myInfo, "this is my info")
 return (
     <div className="box">
       {/* Works for the first load, second load breaks. */}
-       {myInfo.data ? <h1> Welcome {myInfo.data.username} </h1> : null}
+       {myInfo.data ? <h1> Welcome {myInfo.data.username} </h1> : <h1>Please Login</h1>}
        
-             {/* <h1> Welcome User </h1> */}
+  
        
 {/* ATTEMPTING TO MAP UNSUCCESSFUL WITH BOTH TRIES, LOOK ABOVE FOR BOTH MAPPING TECHNIQUES */}
-        <div id = "messageBox">
         
-          <p>Messages are Here</p>
+        <div id = "messageBox">
+          <h2>Messages:</h2>
+          <h4>
           {myInfoMapping} 
-    
+          </h4>
         </div>
         <div id = "postBox">
           this will be user post
