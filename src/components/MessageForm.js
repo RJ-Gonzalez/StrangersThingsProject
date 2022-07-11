@@ -4,7 +4,7 @@ import { deletePosts, getPosts, sendMessage,connectProfile } from "../api";
 import newPost from "./NewPost";
 
 export default function MessageForm(props){
-    const {postId, token} = props
+    const {postId} = props
     // const [messageContent, setMessageContent] =useState("")
 //     const navigate = useNavigate ()
 //    async function handleMessage(event){

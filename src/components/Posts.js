@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Route, Link, Routes, useNavigate } from "react-router-dom";
 import { deletePosts, getPosts } from "../api";
+import MessageForm from "./MessageForm"
 
 
 import "./App.css";
@@ -49,7 +50,7 @@ const Posts = ({postValue, setPostValue}) => {
           <h4 id = "additionalPost">TIME POSTED: {post.updatedAt}</h4>
           <h4 id = "additionalPost">POST BY: {post.author.username}</h4>
           <h3 id = "additionalPost">DESCRIPTION: {post.description}</h3>
-          { authToken === true ? <Link to = "/MessageForm"><button onClick ={()=>{catchId(post._id)}} id = "deleteButton">Message User</button></Link>: null}
+          <MessageForm postId = {postId}/>
           { authToken === true ? <button onClick ={()=>{catchId(post._id), deletePost(post._id)}} id = "deleteButton">Delete Post</button>:<Link to ="/Login"><button id = "null">Login to View Post</button></Link>}
           </div>
         </div>
