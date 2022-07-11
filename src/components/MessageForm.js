@@ -5,8 +5,11 @@ import { deletePosts, getPosts } from "../api";
 export default function MessageForm(){
     return (<form>
         <h1>Message Form</h1>
-        <label>message</label>
-        <input id = "user message">write message</input>
+        <label>Message</label>
+        <input
+            type = "text"
+            placeholder = "Write Message"> 
+        </input>
         <button>submit</button>
         </form>
         )
