@@ -1,14 +1,17 @@
 import React from "react";
+import { useNavigate, Link } from "react-router-dom";
 
-async function handleSubmit(event){
-    event.preventDefault()
-    console.log("this is handle submit for logout")}
+
+
+
 
 export default function LoggedOut(){
+    let navigate = useNavigate()
+
     return(
         <div>
-            Come back soon!
-            <button>Log back in?</button>
+            <h1>Thank you, see you next time!</h1>
+            <Link to = "/Login"><button id = "logBackIn">Log back in?</button></Link>
         </div>
     )
 }

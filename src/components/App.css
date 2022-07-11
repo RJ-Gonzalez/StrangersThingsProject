@@ -44,3 +44,14 @@ button{
 p{
     font-family: 'Dosis',sans-serif;
 }
+#logBackIn{
+    width: 100%;
+    font-family: 'Dosis bold 700',sans-serif;
+    font-size: 25px;
+    color:#98c1d9;
+    background-color:#293241;
+}
+
+#logBackIn:hover{
+    opacity: 40%;
+}
