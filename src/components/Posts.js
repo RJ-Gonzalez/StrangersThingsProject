@@ -26,16 +26,17 @@ const Posts = ({postValue, setPostValue}) => {
       });
   }, []);
   console.log(posts);
-  async function deletePost(){
+  async function deletePost(post_id){
     const tokens = localStorage.getItem("token")
     // console.log(tokens, 'this is tokens line 29')
-    const post_id = postValue;
     // console.log(post_id, "this is post_id in posts")
     const erase = await deletePosts(tokens, post_id);
+    console.log(erase, "this is erase")
     navigate("/Profile")
     return erase
    }
   const postMapping = posts.map((post, index) => {
+    console.log(post, "this is line 39")
     return (
       <div id = "TitleBox">
         <div id = "titleContainer">
@@ -46,7 +47,7 @@ const Posts = ({postValue, setPostValue}) => {
           <h4 id = "additionalPost">POST BY: {post.author.username}</h4>
           <h3 id = "additionalPost">DESCRIPTION: {post.description}</h3>
 
-          { authToken === true ? <button onClick ={()=>{catchId(post._id), deletePost()}} id = "deleteButton">Delete Post</button>:<Link to ="/Login"><button id = "null">Login to View Post</button></Link>}
+          { authToken === true ? <button onClick ={()=>{catchId(post._id), deletePost(post._id)}} id = "deleteButton">Delete Post</button>:<Link to ="/Login"><button id = "null">Login to View Post</button></Link>}
           </div>
         </div>
       </div>

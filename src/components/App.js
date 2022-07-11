@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Route, Link, Routes } from "react-router-dom";
-import { Login, Logout, Register, Title, Posts, Profile, NewPost, SinglePost } from "./";
+import { Login, Logout, Register, Title, Posts, Profile, NewPost, SinglePost,LoadingPage } from "./";
 
 import "./App.css";
 
@@ -13,6 +13,7 @@ const App = () => {
     <div>
   
       <Title/>
+      {/* <LoadingPage/> */}
  
       
       {/* attempting to make links to other pages, Cant create a route inside another route */}

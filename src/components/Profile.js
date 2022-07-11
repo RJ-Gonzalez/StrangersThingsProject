@@ -10,14 +10,7 @@ export default function Profile() {
 
     let token = "";
     const [myInfo, setMyInfo] = useState({})
-    // const [userMessages, setUserMessages] = useState([])
-    // // useEffect(()=>{
-    // //   const result = getUser(token)
-    // //   if(result.data){
-    // //     const messages = result.data.messages
-    // //     setUserMessages(messages)
-    // //   }else return null
-    // // }, [])
+
     useEffect(() => {
         token = localStorage.getItem("token")
         async function getMyInfo() {
@@ -28,37 +21,34 @@ export default function Profile() {
         getMyInfo()
     },[])
     // console.log("messages are", myInfo)
-    const info = myInfo.data
-    console.log(info, "this is info.data line 20")
-    // const myInfoMapping = info && info.length ? info.map((element, index, array) => {
-    //     return (
-    //       <div>
-    //         {/* <div key={`Profile${index}`}><button>
-    //           <h1>{element.data.posts.messages}</h1>
-    //           <h1>{element.posts.messages.content}</h1>
-          
-    //           </button> */}
-    //         </div>
-       
+    
+ 
 
+    const myInfoMapping =myInfo.data && myInfo.data.messages && myInfo.data.messages.length ? myInfo.data.messages.map((element, index) => {
+      console.log(element, "this is element line 28")
+        return (
+            <div key={`Profile${index}`}><button>
+              <h2>{element.content}</h2>
+              <h2>{element.fromUser.username}</h2>
+              </button>
+              </div>
+          )
+}) : <h2>No messages to display</h2>
+       
+console.log(myInfo, "this is my info")
 return (
     <div className="box">
       {/* Works for the first load, second load breaks. */}
-        {/* <h1> Welcome {myInfo.data.username} </h1> */}
-             <h1> Welcome User </h1>
+       {myInfo.data ? <h1> Welcome {myInfo.data.username} </h1> : null}
+       
+             {/* <h1> Welcome User </h1> */}
        
 {/* ATTEMPTING TO MAP UNSUCCESSFUL WITH BOTH TRIES, LOOK ABOVE FOR BOTH MAPPING TECHNIQUES */}
         <div id = "messageBox">
-         {/* {myInfoMapping} */}
+        
           <p>Messages are Here</p>
-          
-          {/* {userMessages.map((element,index)=>{
-            return(
-              <div>
-                <p>message: {element.post.title}</p>
-              </div>
-            )
-          })} */}
+          {myInfoMapping} 
+    
         </div>
         <div id = "postBox">
           this will be user post

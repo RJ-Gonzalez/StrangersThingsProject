@@ -131,3 +131,31 @@ p{
     margin-left:30%;
     text-decoration: none;
 }
+#loadingPageDiv{
+    background-color:#98c1d9;
+    border:5px solid black;
+    height: 200px;
+    width: 400px;
+    margin: auto;
+    margin-top: 10%;
+    display:flex;
+    justify-content:center;
+
+}
+#loadingPage{
+    font-family: 'Dosis',sans-serif;
+    color:#ee6c4d;
+    border: none;
+    background-color:#98c1d9;
+}
+
+#loadingPageButton{
+    margin-top: 170%;
+    margin-right: 570%;
+    width: 100px;
+    font-family: 'Dosis bold 700',sans-serif;
+    font-size: 15px;
+    color:#98c1d9;
+    background-color:#293241;
+    align-items:center;
+}
