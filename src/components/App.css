@@ -166,6 +166,7 @@ p {
 #messageInput {
   font-size: 18px;
   height: 18px;
+  width: 200px;
 }
 #titleMessage {
   margin: auto;

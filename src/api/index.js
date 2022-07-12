@@ -120,49 +120,6 @@ throw error;
 }
 
 
-
-// export async function registerPerson (event) {
-//   console.log(`${BASE_URL}${cohortName}/users/register`)
-//   const response = await fetch(`${BASE_URL}${cohortName}/users/register`)
-
-//   console.log(response)
-// }
-
-
-
-
-
-//This would be in your component file
-// async function handleSubmit(event){
-//   EventTarget.preventDefault()
-//   console.log("this is your event")
-//   registerPerson(event)
-// }
-
-
-// localStorage.getItem('')
-// https://developer.mozilla.org/en-US/docs/Web/API/Window?localStorage
-
-
-
-// export async function deletePosts(token, postId){
-//   const response = await fetch(`${BASE_URL}${cohortName}/posts/${postId}`,
-//    {
-//     method: 'DELETE',
-//     headers:{    
-//       'Content-Type': 'application/json',
-//       'Authorization': `Bearer ${token}`
-
-//     },
-//   }) 
-//   .then(response => response.json())
-//   .then(result => {
-//     console.log(result)
-
-//   })
-//   .catch(console.error)
-// }
-
 export async function deletePosts(token, postid){
   try{
       const response = await fetch(`${BASE_URL}${cohortName}/posts/${postid}`, {

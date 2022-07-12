@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Route, Link, Routes, useNavigate } from "react-router-dom";
 import { deletePosts, getPosts } from "../api";
-import MessageForm from "./MessageForm";
+import {MessageForm, Search} from "./";
 
 import "./App.css";
 
@@ -26,7 +26,7 @@ const Posts = ({ postValue, setPostValue }) => {
         console.log(error);
       });
   }, []);
-  console.log(posts);
+  // console.log(posts);
   async function deletePost(post_id) {
     const tokens = localStorage.getItem("token");
     // console.log(tokens, 'this is tokens line 29')
@@ -37,13 +37,14 @@ const Posts = ({ postValue, setPostValue }) => {
     return erase;
   }
   const postMapping = posts.map((post, index) => {
-    console.log(posts);
+    // console.log(posts);
     let postId = posts[index]._id;
-    console.log(postId, "this is post id");
+    // console.log(postId, "this is post id");
     return (
-      <div id="TitleBox">
-        <div id="titleContainer">
-          <div key={`App${index}`}>
+
+          <div key={`Posts${index}`}>
+          <div id="TitleBox">
+          <div id="titleContainer">
             <h1 id="postTitle">{post.title}</h1>
             <h2 id="additionalPost">PRICE: {post.price}</h2>
             <h4 id="additionalPost">TIME POSTED: {post.updatedAt}</h4>
@@ -72,6 +73,7 @@ const Posts = ({ postValue, setPostValue }) => {
 
   return (
     <div id = "postsDiv">
+      <Search postMapping = {postMapping} posts = {posts} setPosts ={setPosts}/>
       <h1 id = "postWelcome">Welcome to Posts!
       {authToken === true ? (<Link to = "/Profile"><button id = "deleteButton"> Back to Profile </button></Link>): null}</h1>
 
