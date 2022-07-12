@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import { useNavigate } from "react-router-dom";
 import {loginUser} from '../api';
+import { Link } from 'react-router-dom';
 
 import "./Login.css"
 
@@ -33,6 +34,7 @@ export default function LoggedIn (){
     console.log(username)
     return(<>
     <form id = "loginPage" onSubmit ={handleSubmit}>
+        <h1>Login</h1>
         <label> Username: </label>
         <input id ="username"
         placeholder = "Enter Username Here" 
@@ -46,6 +48,7 @@ export default function LoggedIn (){
         onChange ={handleOnChange}>
         </input>
         <button id = "loginButton" type = "submit">Login</button>
+        <Link to = "/Posts"> <button id = "loginButton">View As Guest</button></Link>
     </form>
     </>)
 }

@@ -30,6 +30,7 @@ input{
     color:#98c1d9;
     background-color:#293241;
     margin: auto;
+    margin-top: 2%;
 }
 #loginButton:hover{
     opacity: 10%;

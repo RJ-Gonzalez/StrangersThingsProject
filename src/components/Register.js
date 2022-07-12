@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import {createUser} from "../api"
+import { Link } from 'react-router-dom';
+
 export const cohortName = "2206-FTB-ET-WEB-FT";
 export const BASE_URL = `https://strangers-things.herokuapp.com/api/`;
 
@@ -20,25 +22,27 @@ async function handleSubmit(event){
     navigate("/Login")
 } 
     return(<>
-    <form onSubmit ={handleSubmit}>
+    <form onSubmit ={handleSubmit} id ="loginPage">
         <h1>REGISTER</h1>
-     
-            <input id = "newUsername"  
+        <label> Enter New Username </label>
+            <input id = "username"  
             placeholder = "Enter newUsername" 
             type = "text" minLength = "6"
             onChange={event => setnewUsername(event.target.value)}>
-
             </input>
+            <label> Enter New Password</label>
             <input id = "password" 
             placeholder = "Enter Password" 
             type = "password" minLength = "6" 
             onChange={event => setPassword(event.target.value)}>
             </input>
+            <label> Confirm New Password</label>
             <input id = "confirmPassword"  
             placeholder = "Confirm Password" 
             type = "password" minLength = "6" 
             onChange={event => setConfirmPassword(event.target.value)}>
             </input>
         <div></div>
-        <button type = "submit">Create Account</button>
+        <button id ="loginButton" type = "submit">Create Account</button>
+        <Link to = "/Posts"> <button id = "loginButton">View As Guest</button></Link>
         </form></>)}
