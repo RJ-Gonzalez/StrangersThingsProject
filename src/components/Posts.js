@@ -49,7 +49,7 @@ const Posts = ({ postValue, setPostValue }) => {
             <h4 id="additionalPost">TIME POSTED: {post.updatedAt}</h4>
             <h4 id="additionalPost">POST BY: {post.author.username}</h4>
             <h3 id="additionalPost">DESCRIPTION: {post.description}</h3>
-            <MessageForm postId={postId} />
+            <MessageForm postId={postId} deletePost = {deletePost} />
             {authToken === true ?  (
               <button
                 onClick={() => {
@@ -74,7 +74,9 @@ const Posts = ({ postValue, setPostValue }) => {
     <div id = "postsDiv">
       <h1 id = "postWelcome">Welcome to Posts!
       {authToken === true ? (<Link to = "/Profile"><button id = "deleteButton"> Back to Profile </button></Link>): null}</h1>
+
       {postMapping}
+      
       {authToken === true ? (<Link to = "/Profile"><button id = "deleteButton"> Back to Profile </button></Link>): null}
     </div>
   );
