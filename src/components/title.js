@@ -7,7 +7,7 @@ export default function Title(){
            <div id= "navBar">
            <p id = "h1_title">Welcome to Stranger's Things</p>
            <h2> <Link to= '/Login'>Login</Link> Or <Link to ='/Register'>Register</Link></h2>
-            </div>
+           </div>
     )
 }
 

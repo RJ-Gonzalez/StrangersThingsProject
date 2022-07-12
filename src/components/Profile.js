@@ -36,17 +36,16 @@ export default function Profile() {
       <h2>No messages to display</h2>
     );
 
-  // console.log(myInfo, "this is my info")
+
   return (
     <div className="box">
-      {/* Works for the first load, second load breaks. */}
+ 
       {myInfo.data ? (
         <h1> Welcome {myInfo.data.username} </h1>
       ) : (
         <h1>Please Login</h1>
       )}
 
-      {/* ATTEMPTING TO MAP UNSUCCESSFUL WITH BOTH TRIES, LOOK ABOVE FOR BOTH MAPPING TECHNIQUES */}
 
       <div id="messageBox">
         <h2>Messages:</h2>

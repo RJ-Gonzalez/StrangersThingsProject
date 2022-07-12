@@ -12,7 +12,6 @@ export default function LoggedIn (){
 
     const handleOnChange = (event) =>{
         const changed = event.target.id
-        // console.log(changed, 'this is changed')
         if(changed === 'username'){
             console.log(username, 'this is username')
             setUsername(event.target.value)
