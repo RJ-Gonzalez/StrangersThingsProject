@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { Route, Link, Routes, useNavigate } from "react-router-dom";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 
 
@@ -63,7 +63,6 @@ async function handleSubmit(event) {
  
                 onChange = {event => setPrice(event.target.value)}
                 placeholder = "price">
-                    {/* need to apply deliver */}
                 </input>
                 <button type = "Submit">Submit New Post</button>
                 </form></>       

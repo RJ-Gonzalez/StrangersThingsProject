@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Route, Link, Routes, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { deletePosts, getPosts } from "../api";
 import {MessageForm, Search} from "./";
 
@@ -13,8 +13,6 @@ const Posts = ({ postValue, setPostValue }) => {
     setPostValue(id);
     return postValue;
   };
-  // console.log(posts, "this is posts! in posts.")
-  // console.log(postValue, "this is postValue line 14")
   useEffect(() => {
     getPosts()
       .then((response) => {
@@ -26,20 +24,15 @@ const Posts = ({ postValue, setPostValue }) => {
         console.log(error);
       });
   }, []);
-  // console.log(posts);
   async function deletePost(post_id) {
     const tokens = localStorage.getItem("token");
-    // console.log(tokens, 'this is tokens line 29')
-    // console.log(post_id, "this is post_id in posts")
     const erase = await deletePosts(tokens, post_id);
     console.log(erase, "this is erase");
     navigate("/Profile");
     return erase;
   }
   const postMapping = posts.map((post, index) => {
-    // console.log(posts);
     let postId = posts[index]._id;
-    // console.log(postId, "this is post id");
     return (
 
           <div key={`Posts${index}`}>

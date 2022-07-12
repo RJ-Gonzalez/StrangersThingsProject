@@ -16,11 +16,9 @@ export default function Profile() {
     }
     getMyInfo();
   }, []);
-  // console.log("messages are", myInfo)
   const myInfoMapping =
     myInfo.data && myInfo.data.messages && myInfo.data.messages.length ? (
       myInfo.data.messages.map((element, index) => {
-        console.log(element, "this is element line 28");
         return (
           <div key={`Profile${index}`}>
             <div id="inboxMessage">
@@ -45,8 +43,7 @@ export default function Profile() {
       ) : (
         <h1>Please Login</h1>
       )}
-
-
+      
       <div id="messageBox">
         <h2>Messages:</h2>
 

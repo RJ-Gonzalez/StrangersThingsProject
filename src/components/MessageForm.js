@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { Route, Link, Routes, useNavigate } from "react-router-dom";
-import { deletePosts, getPosts, sendMessage, connectProfile } from "../api";
-import newPost from "./NewPost";
+import { useNavigate } from "react-router-dom";
+import { sendMessage } from "../api";
 
 export default function MessageForm(props) {
   const { postId } = props;
-  const authToken = localStorage.getItem("token") ? true : false
 
   console.log(postId, "this is post id for message");
   const navigate = useNavigate();
@@ -18,7 +16,6 @@ export default function MessageForm(props) {
     navigate("/Profile")
     console.log(postId, "this is catch id line 27 message form");
   };
-
   return (
     
     <form onSubmit={handleSubmit}>

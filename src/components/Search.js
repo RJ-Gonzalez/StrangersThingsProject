@@ -18,9 +18,6 @@ setPosts(filteredPosts)
 if(searchTerm.length){
     getPosts();
 }}
-
-
-
     return(
         <form id = "searchBar" onSubmit ={(event) => {event.preventDefault(); handleSubmit()}} >
             <div id="TitleBox">
