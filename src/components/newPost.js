@@ -24,7 +24,7 @@ export default function newPost() {
       price: price,
       willDeliver: willDeliver,
     };
-  
+
     const token = localStorage.getItem("token");
 
     const response = await addPosts(postDetail, token);
@@ -51,31 +51,36 @@ export default function newPost() {
                   <form onSubmit={handleSubmit}>
                     <div className="form-outline mb-4">
                       <input
-                      id="form2Example1" 
-                      className="form-control"
+                        id="form2Example1"
+                        className="form-control"
                         type="text"
                         onChange={(event) => setTitle(event.target.value)}
                         placeholder="title"
                       ></input>
                       <input
-                      id="form2Example1" className="form-control"
+                        id="form2Example1"
+                        className="form-control"
                         type="text"
                         onChange={(event) => setDescription(event.target.value)}
                         placeholder="description"
                       ></input>
                       <input
-                      id="form2Example1" className="form-control"
+                        id="form2Example1"
+                        className="form-control"
                         type="text"
                         onChange={(event) => setLocation(event.target.value)}
                         placeholder="location"
                       ></input>
                       <input
-                      id="form2Example1" className="form-control"
+                        id="form2Example1"
+                        className="form-control"
                         type="text"
                         onChange={(event) => setPrice(event.target.value)}
                         placeholder="price"
                       ></input>
-                      <button className="btn btn-dark" id ="newPostButton">Submit New Post</button>
+                      <button className="btn btn-dark" id="newPostButton">
+                        Submit New Post
+                      </button>
                     </div>
                   </form>
                 </>

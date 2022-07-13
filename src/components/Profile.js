@@ -20,18 +20,16 @@ export default function Profile() {
       myInfo.data.messages.map((element, index) => {
         return (
           <div key={`Profile${index}`}>
-            <div className="card" style= {{width: 700}}>
-            <div className="card-body">
-            <div id="inboxMessage">
-              <h4>From: {element.fromUser.username}</h4>
-              <h4>Response to Post: {element.post.title}</h4>
-              <h4>Message: {element.content}</h4>
+            <div className="card" style={{ width: 700 }}>
+              <div className="card-body">
+                <div id="inboxMessage">
+                  <h4>From: {element.fromUser.username}</h4>
+                  <h4>Response to Post: {element.post.title}</h4>
+                  <h4>Message: {element.content}</h4>
+                </div>
+              </div>
             </div>
           </div>
-          </div>
-          </div>
-
-
         );
       })
     ) : (
@@ -47,23 +45,21 @@ export default function Profile() {
       )}
       <hr></hr>
       <Link to="/NewPost">
-        <button 
-        id = 'allButton'
-        type="button" 
-        className="btn btn-dark">Create New Post</button>
+        <button id="allButton" type="button" className="btn btn-dark">
+          Create New Post
+        </button>
       </Link>
       <Link to="/Posts">
-        <button 
-         id = 'allButton'
-          type="button" 
-          className="btn btn-dark">View All Posts</button>
+        <button id="allButton" type="button" className="btn btn-dark">
+          View All Posts
+        </button>
       </Link>
 
       <Link to="/Logout">
         <button
-         id = 'allButton'
-            type="button" 
-            className="btn btn-dark"
+          id="allButton"
+          type="button"
+          className="btn btn-dark"
           onClick={() => {
             localStorage.removeItem("token");
           }}

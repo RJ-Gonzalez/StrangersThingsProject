@@ -11,7 +11,7 @@ import {
   SinglePost,
   LoadingPage,
   MessageForm,
-  Search
+  Search,
 } from "./";
 
 import "./App.css";
@@ -42,15 +42,12 @@ const App = () => {
         <Route
           exact
           path="/Profile"
-          element={<Profile 
-            messages={messages} 
-            setMessages={setMessages} />}
+          element={<Profile messages={messages} setMessages={setMessages} />}
         ></Route>
         <Route exact path="/NewPost" element={<NewPost />}></Route>
         <Route exact path="/Logout" element={<Logout />}></Route>
         <Route exact path="/MessageForm" element={<MessageForm />}></Route>
-        <Route exact path="/Search" element={<Search/>}></Route>
-
+        <Route exact path="/Search" element={<Search />}></Route>
       </Routes>
     </div>
   );

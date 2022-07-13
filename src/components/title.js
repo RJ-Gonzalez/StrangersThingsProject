@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import "./Title.css";
 export default function Title() {
   return (
     <div className="p-5 bg-light mb-4">

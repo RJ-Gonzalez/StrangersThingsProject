@@ -32,7 +32,7 @@ const Posts = ({ postValue, setPostValue }) => {
   const postMapping = posts.map((post, index) => {
     let postId = posts[index]._id;
     return (
-      <div id = "postDiv" key={`Posts${index}`}>
+      <div id="postDiv" key={`Posts${index}`}>
         <div className="card">
           <div className="card-header">
             <h5 className="card-title">{post.title}</h5>
@@ -55,14 +55,17 @@ const Posts = ({ postValue, setPostValue }) => {
                   onClick={() => {
                     catchId(post._id), deletePost(post._id);
                   }}
-                  type="button" 
-                  id = "deletePostButton"
-                  className="btn btn-dark">
+                  type="button"
+                  id="deletePostButton"
+                  className="btn btn-dark"
+                >
                   Delete Post
                 </button>
               ) : (
                 <Link to="/Login">
-                  <button className="btn btn-warning" id ="loginToViewPost">Login to Interact With Posts</button>
+                  <button className="btn btn-warning" id="loginToViewPost">
+                    Login to Interact With Posts
+                  </button>
                 </Link>
               )}
             </li>
@@ -75,20 +78,25 @@ const Posts = ({ postValue, setPostValue }) => {
   return (
     <div id="postBorder">
       <Search postMapping={postMapping} posts={posts} setPosts={setPosts} />
-      <h1 className="display-4">
-        Welcome to Posts!</h1>
+      <h1 className="display-4">Welcome to Posts!</h1>
 
-        {authToken === true ? (
-          <Link to="/Profile">
-            <button id="backToProfile" type="button" className="btn btn-dark"> Back to Profile </button>
-          </Link>
-        ) : null}
+      {authToken === true ? (
+        <Link to="/Profile">
+          <button id="backToProfile" type="button" className="btn btn-dark">
+            {" "}
+            Back to Profile{" "}
+          </button>
+        </Link>
+      ) : null}
 
       {postMapping}
 
       {authToken === true ? (
         <Link to="/Profile">
-          <button type="button" className="btn btn-dark"> Back to Profile </button>
+          <button type="button" className="btn btn-dark">
+            {" "}
+            Back to Profile{" "}
+          </button>
         </Link>
       ) : null}
     </div>
