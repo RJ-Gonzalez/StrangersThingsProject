@@ -1,14 +1,18 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
 
 import "./Title.css";
-export default function Title(){
-    return (
-           <div id= "navBar">
-           <p id = "h1_title">Welcome to Stranger's Things</p>
-           <h2> <Link to= '/Login'>Login</Link> Or <Link to ='/Register'>Register</Link></h2>
-           </div>
-    )
+export default function Title() {
+  return (
+    <div className="p-5 bg-light mb-4">
+      <h1 className="">Welcome to Stranger's Things</h1>
+      <nav className="d-flex">
+        <h4 className="mb-0">
+          <Link to="/Login">Login</Link>
+          <span>|</span>
+          <Link to="/Register">Register</Link>
+        </h4>
+      </nav>
+    </div>
+  );
 }
-
-

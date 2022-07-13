@@ -19,22 +19,23 @@ if(searchTerm.length){
     getPosts();
 }}
     return(
-        <form id = "searchBar" onSubmit ={(event) => {event.preventDefault(); handleSubmit()}} >
-            <div id="TitleBox">
-            <div id = "titleContainer">
-            <label id="messageForm"> Search in Posts:</label>
+        <nav className="navbar navbar-dark bg-dark">
+            <div className="container-fluid">
+        <form id = "searchBar" onSubmit ={(event) => {event.preventDefault(); handleSubmit()}} className="d-flex input-group w-auto">
+        <label>Search Through Posts: </label>
             <input 
-            type = "text"
+               type="search"
+               className="form-control rounded"
             placeholder = "Search"
             id="messageInput"
+            aria-label="Search"
+            aria-describedby="search-addon"
             value = {searchTerm}    
             onChange ={(event)=> setSearchTerm(event.target.value)}>
             </input>
-            <button 
-            type = 'submit'
-            id="submitButton" >Search</button>
-           </div>
-           </div>
+
         </form>
+        </div>
+        </nav>
     )
 }

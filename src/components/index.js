@@ -6,7 +6,6 @@ export { default as Title } from "./Title";
 export { default as Posts } from "./Posts";
 export { default as Profile } from "./Profile";
 export { default as NewPost } from "./NewPost";
-export { default as LoadingPage } from "./LoadingPage";
 export { default as MessageForm } from "./MessageForm";
 export { default as Search } from "./Search";
 

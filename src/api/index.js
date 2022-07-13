@@ -55,7 +55,6 @@ export async function loginUser (username, password) {
     
   }
   )
-  console.log(response, "response - loginUser")
   const result = await response.json()
   const token = result.data.token
   return token
@@ -67,7 +66,6 @@ export async function loginUser (username, password) {
 //unable to fetch appropriate website. no highlight.
 
 export async function connectProfile(token) {
-  console.log(`${BASE_URL}${cohortName}/users/me`) //HAVING ISSUE WITH HIGHLIGHTS
   const response = await fetch(`${BASE_URL}${cohortName}/users/me`,
   {
     headers: {
@@ -82,7 +80,6 @@ return result
 
 
 export async function getUser(authToken){
-  console.log(authToken, "This is authtoken");
   try{
     const userData ={
       'Content-Type': 'application/json',

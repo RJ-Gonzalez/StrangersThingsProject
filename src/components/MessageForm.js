@@ -5,7 +5,6 @@ import { sendMessage } from "../api";
 export default function MessageForm(props) {
   const { postId } = props;
 
-  console.log(postId, "this is post id for message");
   const navigate = useNavigate();
 
   const handleSubmit = (event) => {
@@ -14,14 +13,18 @@ export default function MessageForm(props) {
     const token = localStorage.getItem("token");
     sendMessage(token, postId, content);
     navigate("/Profile")
-    console.log(postId, "this is catch id line 27 message form");
+
   };
   return (
     
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} id ="messageForm">
+      <div className="input-group">
       <label id="messageForm">Direct Message: </label>
-      <input id="messageInput" type="text" placeholder="Write Message"></input>
-      <button id="submitButton">Submit</button>
+      <input id="messageInput" type="text" placeholder=" Questions? Write Here!"     aria-label="Search"
+          aria-describedby="search-addon"
+        ></input>
+      <button id="submitButton"className="btn btn-outline-dark">Submit</button>
+      </div>
     </form>
   );
 }
